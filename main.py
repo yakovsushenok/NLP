@@ -48,7 +48,7 @@ def main():
     CONFIG = {'Model':'Conv','Tasks':['genre']}
     DATA = pd.read_csv( "/home/cwatts/NLP/data/tcc_ceds_music.csv")
     BATCH_SIZE = 32
-    NUM_EPOCH = 30
+    NUM_EPOCH = 40
     LR = 5
     NUM_EX = 5
 
