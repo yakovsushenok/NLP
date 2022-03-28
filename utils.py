@@ -16,10 +16,16 @@ def preprocess_class_im(df):
 
 def update_results(results,experiment_results,i):
     if results == None:
-        return experiment_results
+        results = {}
+        # var 
+        for key, value in experiment_results.items():
+            results[key] = experiment_results[key] - experiment_results[key]
+        return {'mean':experiment_results,'var': results}
     else:
-        for key, value in results.items():
-            results[key] = (1/(i+1))*( (i)*results[key] + experiment_results[key])
+        for key, value in results['var'].items():
+            results['var'][key] = ((i+1)/(i+2)) * (results['var'][key] + (((results['mean'][key]-experiment_results[key])**2)/(i+2)))
+        for key, value in results['mean'].items():
+            results['mean'][key] = (1/(i+1))*( (i)*results['mean'][key] + experiment_results[key])
     return results
 
 
