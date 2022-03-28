@@ -66,7 +66,7 @@ def main():
         results = update_results(results,experiment_results,i)   
 
     ## save results
-    save_conf_mat(CONFIG,results['cm'],data_mapping)
+    save_conf_mat(CONFIG,results['mean']['cm'],data_mapping)
 
     ## print results
     print(results)
